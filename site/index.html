@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor de Postura</title>
+
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+
+<div class="container">
+
+  
+  <div class="header" id="navbar">
+    <div>
+      <strong>Monitor de Postura</strong>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn active" data-view="dashboard" onclick="switchView('dashboard')">Dashboard</button>
+      <button class="nav-btn" data-view="parameters" onclick="switchView('parameters')">Parâmetros</button>
+      <button class="logout-btn" onclick="logout()">Sair</button>
+    </div>
+  </div>
+
+  
+  <div id="loginView" class="view active">
+    <div class="login-card">
+      <h2>Entrar</h2>
+      <form id="loginForm">
+        <input id="email" type="email" placeholder="Email" required>
+        <input id="password" type="password" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+        <div id="loginError" class="error"></div>
+      </form>
+    </div>
+  </div>
+
+  
+  <div id="dashboardView" class="view">
+    <div id="loading" class="loading">Carregando dados...</div>
+    <div id="dashboardData" style="display:none">
+
+      <div class="cards">
+        <div class="card">
+          <h3>Cervical</h3>
+          <div class="time" id="cervicalTime">--</div>
+        </div>
+        <div class="card">
+          <h3>Torácica</h3>
+          <div class="time" id="toracicaTime">--</div>
+        </div>
+        <div class="card">
+          <h3>Lombar</h3>
+          <div class="time" id="lombarTime">--</div>
+        </div>
+      </div>
+
+      <div class="chart-wrap card">
+        <h3 style="text-align:center;color:#667eea;margin-bottom:8px">Tempo Total de Postura Incorreta</h3>
+        <canvas id="postureChart"></canvas>
+      </div>
+
+    </div>
+  </div>
+
+  
+  <div id="parametersView" class="view">
+    <div class="card">
+      <h3 style="color:#667eea">Parâmetros (max/min)</h3>
+      <table>
+        <tr><td>Cervical Max</td><td id="paramCervicalMax">--</td></tr>
+        <tr><td>Cervical Min</td><td id="paramCervicalMin">--</td></tr>
+        <tr><td>Torácica Max</td><td id="paramToraxMax">--</td></tr>
+        <tr><td>Torácica Min</td><td id="paramToraxMin">--</td></tr>
+        <tr><td>Lombar Max</td><td id="paramLombarMax">--</td></tr>
+        <tr><td>Lombar Min</td><td id="paramLombarMin">--</td></tr>
+        <tr><td>Status Atual</td><td id="paramSentado">--</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>

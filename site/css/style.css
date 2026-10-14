@@ -1,0 +1,46 @@
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f5dc;
+    color: #222;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  .card {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 50px 30px 30px 30px; 
+    width: 95%;
+    max-width: 750px; 
+    text-align: center;
+  }
+
+  canvas {
+    width: 100% !important;
+    max-height: 600px;   
+    background: #fff;
+    border-radius: 12px;
+  }
+
+  .btn-voltar {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #e63946; 
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .btn-voltar:hover {
+    background: #b22d36;
+  }
